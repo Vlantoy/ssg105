@@ -1,0 +1,14 @@
+/* Introductory mode: keep one obvious way to start, tuck options into the menu. */
+#modal-mode .modal-start-box{max-width:430px!important;width:90%;border-radius:6px}
+#modal-mode .start-fest-badge,#modal-mode .start-sub-desc,#modal-mode .start-modes-grid,#modal-mode .bot-diff-selector,#btn-start-help,#btn-start-skin{display:none!important}
+#modal-mode .start-main-title{font-size:32px!important;letter-spacing:0}
+#modal-mode .start-modal-header{padding:30px 25px 0!important;border:0}
+#modal-mode .start-modal-body{padding:22px 30px!important;min-height:0}
+#modal-mode .start-modal-body:before{content:'Giữ và rê chuột để xoay lấy đà.\AThả đúng lúc để đưa quả còn qua vòng.';white-space:pre-line;display:block;font:15px/1.9 Arial,sans-serif;color:#eee0c3}
+#modal-mode .start-modal-footer{padding:0 30px 30px!important;border:0}
+#btn-start-game{width:100%;margin:0!important}
+#btn-dev-test,#dev-panel,.menu-mode-list,.menu-sec-title:first-child,#btn-mode,#btn-grip,#btn-skin,#btn-culture,#btn-help,.menu-mode-list+.menu-hr{display:none!important}
+#hud-bottom .culture-ticker,#hud-bottom #culture-tip{display:none!important}
+#hud-menu-dropdown{max-height:70dvh;overflow:auto}
+#p1-skills-tray,#p2-skills-tray,#skill-card-popups,#culture-ticker,#single-hud-group>.hud-card:nth-child(2){display:none!important}
+#hud-bottom{justify-content:flex-end}
