@@ -2,7 +2,7 @@
 'use strict';
 const $=id=>document.getElementById(id), canvas=$('scene'),ctx=canvas.getContext('2d');
 const R=window.Rhythm,E=window.SapEndless, W=960,H=540,reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
-const bg=new Image();bg.src='../assets/background/Background.png';
+const bg=(window.GameLoader?.track(new Image()) || new Image());bg.src='../assets/background/Background.png';
 let roundState=null,round=1,lives=3,roundWait=0,countdownAt=0;
 let level='easy',state='menu',notes=[],score=0,combo=0,maxCombo=0,counts={},origin=0,frozen=0,nextBeat=0,muted=false,feedbackUntil=0,pose=1,hopAt=-10,now=0,particles=[];
 const storage={get(k,d){try{return localStorage.getItem(k)??d;}catch{return d;}},set(k,v){try{localStorage.setItem(k,v);}catch{}}};

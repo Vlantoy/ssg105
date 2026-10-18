@@ -2812,7 +2812,7 @@
       const charAssets = CHARACTER_CONFIG.getCharacterAssetEntries(skinId);
       await Promise.all(charAssets.map(item => {
         return new Promise(resolve => {
-          const img = new Image();
+          const img = (window.GameLoader?.track(new Image()) || new Image());
           img.onload = () => {
             this.assets[item.key] = img;
             resolve();
@@ -2941,7 +2941,7 @@
       this.totalAssets = assetList.length;
 
       assetList.forEach(item => {
-        const img = new Image();
+        const img = (window.GameLoader?.track(new Image()) || new Image());
         img.src = item.src;
         img.onload = () => {
           this.assets[item.key] = img;

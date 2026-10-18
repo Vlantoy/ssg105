@@ -1,9 +1,9 @@
 (() => {
  'use strict';
  const $=id=>document.getElementById(id),canvas=$('scene'),ctx=canvas.getContext('2d'),E=window.StickEngine;
- const bg=new Image();bg.src='../assets/background/Background.png';
- const hero=new Image();hero.src='assets/fighter-woman-v4.png';const rival=new Image();rival.src='assets/fighter-veteran-v4.png';
- const spectators=['../assets/character/p1/body.png','../assets/character/p2/body.png'].map(src=>{const im=new Image();im.src=src;return im;});
+ const bg=(window.GameLoader?.track(new Image()) || new Image());bg.src='../assets/background/Background.png';
+ const hero=(window.GameLoader?.track(new Image()) || new Image());hero.src='assets/fighter-woman-v4.png';const rival=(window.GameLoader?.track(new Image()) || new Image());rival.src='assets/fighter-veteran-v4.png';
+ const spectators=['../assets/character/p1/body.png','../assets/character/p2/body.png'].map(src=>{const im=(window.GameLoader?.track(new Image()) || new Image());im.src=src;return im;});
  const resize=()=>{canvas.width=960;canvas.height=Math.round(canvas.clientHeight/canvas.clientWidth*960);};new ResizeObserver(resize).observe(canvas);
  const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
  let mode='bot',level='normal',state=E.create(),phase='menu',score=[0,0],round=1,countdown=0,last=0,held=[false,false],pausedFrom='play',sound=false,audio=null,particles=[],flash=0,visualTime=0;
