@@ -36,8 +36,9 @@
         <h1>${g.title}</h1>
         <p class="detail-tagline">${g.intro || ''}</p>
         <p class="lead">${g.description}</p>
-        <div class="actions">
-          <a class="button" href="#cach-choi">Cách chơi ngoài đời <span aria-hidden="true">↗</span></a>
+        <div class="actions" style="display:flex; gap:12px; flex-wrap:wrap; align-items:center;">
+          <a class="button" href="../${slug}/index.html" style="background:#d97706; color:#fff; font-weight:700;">🎮 Vào Chơi ${g.title} Ngay →</a>
+          <a class="button" href="#cach-choi">Cách chơi ngoài đời <span aria-hidden="true">↓</span></a>
           <a class="text-link" href="#tong-quan">Ý nghĩa văn hóa ↓</a>
         </div>
         <p class="play-note">Chuyên trang văn hóa Sắc Việt · Bấm logo Sắc Việt trên thanh điều hướng để về sảnh game</p>
