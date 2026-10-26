@@ -1,151 +1,212 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="theme-color" content="#153d35">
-  <meta name="description" content="Tìm hiểu trò chơi dân gian qua câu chuyện, cách chơi, ảnh tư liệu và video. Khám phá nét đẹp văn hóa cùng Sắc Việt.">
-  <title>Sắc Việt · Chạm vào bản sắc</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>SẮC VIỆT — Tinh Hoa Trò Chơi Dân Gian Việt Nam</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,700&family=Noto+Serif:ital,wght@0,400;0,600;0,700;0,800;1,400;1,700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="portal/redesign.css?v=sac-viet-clean-1">
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="homepage.css?v=20261022_final">
 </head>
-<body class="home-page">
-  <a class="skip-link" href="#main">Đến nội dung</a>
-  
-  <header class="site-header">
-    <a class="brand brand-sac-viet" href="index.html" aria-label="Sắc Việt — Về Trang chủ chơi game" title="Sắc Việt — Về Trang chủ chơi game">
-      <span>SẮC VIỆT</span>
-    </a>
-    <nav class="desktop-nav" aria-label="Điều hướng chính">
-      <a href="#tro-choi">Khám phá văn hóa</a>
-      <a href="#ngay-hoi">Không gian ngày hội</a>
-      <a href="#ve-du-an">Về Sắc Việt</a>
-    </nav>
-    <a class="button small" href="index.html" title="Quay lại sảnh chính Trang chủ">Về trang chủ <span aria-hidden="true">↗</span></a>
-    <button class="menu-toggle" aria-expanded="false" aria-controls="mobile-menu">Menu</button>
-    <nav id="mobile-menu" class="mobile-menu" aria-label="Điều hướng điện thoại" hidden>
-      <a href="#tro-choi">Khám phá văn hóa</a>
-      <a href="#ngay-hoi">Không gian ngày hội</a>
-      <a href="#ve-du-an">Về Sắc Việt</a>
-      <a href="index.html">Về trang chủ ↗</a>
-    </nav>
-  </header>
+<body>
+  <div class="homepage-container">
+    <div class="homepage-stage" id="homepage-stage">
+      
+      <!-- ENDLESS SEAMLESS SCROLLING BACKGROUND -->
+      <div class="endless-bg-track" id="endless-bg-track" aria-hidden="true">
+        <img src="assets/ui/seamless_panorama.png" class="endless-bg-img" alt="">
+        <img src="assets/ui/seamless_panorama.png" class="endless-bg-img" alt="">
+      </div>
 
-  <main id="main">
-    <section class="home-hero wrap">
-      <div class="hero-copy">
-        <p class="eyebrow">VĂN HÓA VIỆT · KHÁM PHÁ BẢN SẮC</p>
-        <h1>Chạm vào<br><em>bản sắc Việt.</em></h1>
-        <p class="lead">Gần hơn với tiếng tre, đường còn và những cuộc vui kết nối bản làng.</p>
-        <p>Tìm hiểu trò chơi dân gian qua câu chuyện, ảnh và video tư liệu chân thực của ngày hội truyền thống.</p>
-        <div class="actions">
-          <a class="button" href="#tro-choi">Khám phá văn hóa <span aria-hidden="true">↗</span></a>
-          <a class="text-link" href="#ngay-hoi">Ghé không gian ngày hội</a>
+      <!-- TOP UTILITY CONTROLS (ÂM THANH & CÀI ĐẶT) -->
+      <div class="top-controls">
+        <button type="button" class="ctrl-btn btn-audio" id="btn-audio-toggle" title="Âm thanh hội xuân (Bật/Tắt)" aria-label="Bật tắt âm thanh">
+          <img src="assets/ui/btn_audio_pixel.png" alt="Âm thanh" id="img-audio-state" class="ctrl-icon-pixel">
+        </button>
+        <button type="button" class="ctrl-btn btn-settings" id="btn-settings-toggle" title="Cài đặt & Điểm kỷ lục" aria-label="Cài đặt">
+          <img src="assets/ui/btn_settings_pixel.png" alt="Cài đặt" class="ctrl-icon-pixel">
+        </button>
+      </div>
+
+      <!-- AMBIENT FLOATING PETALS -->
+      <div class="ambient-particles" id="ambient-particles" aria-hidden="true"></div>
+
+      <!-- 1. HEADER LOGO "SẮC VIỆT" -->
+      <div class="layer-logo-wrap" id="logo-layer" title="Sắc Việt — Tinh hoa Trò chơi Dân gian Việt Nam" role="banner">
+        <img src="assets/ui/layer_logo_sac_viet.png" alt="SẮC VIỆT" class="layer-img logo-img" decoding="async">
+      </div>
+
+      <!-- 2. CAROUSEL NAVIGATION ARROWS (MŨI TÊN TAM GIÁC HOÀNG KIM) -->
+      <button type="button" class="carousel-arrow btn-arrow-prev" id="btn-slide-prev" title="Trò chơi trước (Phím ←)" aria-label="Trò chơi trước">
+        <img src="assets/ui/btn_arrow_left.png" alt="Trước" class="arrow-img" decoding="async">
+      </button>
+
+      <button type="button" class="carousel-arrow btn-arrow-next" id="btn-slide-next" title="Trò chơi tiếp theo (Phím →)" aria-label="Trò chơi tiếp theo">
+        <img src="assets/ui/btn_arrow_right.png" alt="Tiếp" class="arrow-img" decoding="async">
+      </button>
+
+      <!-- 3. MULTI-GAME CAROUSEL VIEWPORT (TẤT CẢ 6 GAME VỚI HIỆU ỨNG SLIDE, BLUR VÀ HÀO QUANG) -->
+      <div class="carousel-viewport" id="carousel-viewport" role="region" aria-label="Danh sách trò chơi dân gian">
+        <!-- CARD 1: NÉM CÒN (INDEX 0) -->
+        <div class="card-item slot-center selected" id="card-nem-con" data-game="nem-con" data-index="0" tabindex="0" role="button" aria-label="Ném Còn Dân Tộc">
+          <img src="assets/ui/card_1_nem_con.png" alt="Ném Còn" class="layer-img card-img" decoding="async">
+        </div>
+
+        <!-- CARD 2: ĐẨY GẬY (INDEX 1) -->
+        <div class="card-item slot-right" id="card-day-gay" data-game="day-gay" data-index="1" tabindex="0" role="button" aria-label="Đẩy Gậy Đối Kháng">
+          <img src="assets/ui/card_2_day_gay.png" alt="Đẩy Gậy" class="layer-img card-img" decoding="async">
+        </div>
+
+        <!-- CARD 3: NHẢY SẠP (INDEX 2) -->
+        <div class="card-item slot-hidden-right" id="card-nhay-sap" data-game="nhay-sap" data-index="2" tabindex="0" role="button" aria-label="Nhảy Sạp Vùng Cao">
+          <img src="assets/ui/card_3_nhay_sap.png" alt="Nhảy Sạp" class="layer-img card-img" decoding="async">
+        </div>
+
+        <!-- CARD 4: ĐI CÀ KHEO (INDEX 3) -->
+        <div class="card-item slot-hidden-back" id="card-ca-kheo" data-game="ca-kheo" data-index="3" tabindex="0" role="button" aria-label="Đi Cà Kheo Khéo Léo">
+          <img src="assets/ui/card_4_ca_kheo.png" alt="Đi Cà Kheo" class="layer-img card-img" decoding="async">
+        </div>
+
+        <!-- CARD 5: BẮN NỎ (INDEX 4) -->
+        <div class="card-item slot-hidden-left" id="card-ban-no" data-game="ban-no" data-index="4" tabindex="0" role="button" aria-label="Bắn Nỏ Thiện Xạ">
+          <img src="assets/ui/card_5_ban_no.png" alt="Bắn Nỏ" class="layer-img card-img" decoding="async">
+        </div>
+
+        <!-- CARD 6: ĐÁNH QUAY / NÉM QUAY (INDEX 5) -->
+        <div class="card-item slot-left" id="card-danh-quay" data-game="danh-quay" data-index="5" tabindex="0" role="button" aria-label="Ném Quay - Đánh Cù">
+          <img src="assets/ui/card_6_danh_quay.png" alt="Ném Quay" class="layer-img card-img" decoding="async">
         </div>
       </div>
-      <div class="hero-montage">
-        <figure class="hero-main-photo">
-          <img id="home-dance" alt="Múa sạp trong ngày hội của người Thái" fetchpriority="high">
-          <figcaption>
-            <a href="https://dantocmiennui.baotintuc.vn/mua-sap-cua-nguoi-thai-post303019.html" target="_blank" rel="noopener">Ảnh: Đinh Công Hoan / DTMN ↗</a>
-          </figcaption>
-        </figure>
-        <figure class="hero-inset-photo">
-          <img id="home-throw" alt="Người chơi ném còn tại Sa Pa">
-          <figcaption>
-            <a href="https://visitsapa.com.vn/vi/le-hoi-roong-pooc-nguoi-giay-sa-pa" target="_blank" rel="noopener">Ảnh: Visit Sa Pa ↗</a>
-          </figcaption>
-        </figure>
-      </div>
-    </section>
 
-    <section class="orientation wrap" aria-label="Bắt đầu khám phá">
-      <p><strong>Hiểu cuộc vui, lưu giữ bản sắc.</strong><br>Đọc câu chuyện, chiêm ngưỡng hình ảnh tư liệu và tìm hiểu ý nghĩa ngày hội.</p>
-      <ol>
-        <li><span>01</span> Chọn một trò</li>
-        <li><span>02</span> Đọc câu chuyện</li>
-        <li><span>03</span> Khám phá tư liệu</li>
-      </ol>
-    </section>
-
-    <section class="games-section wrap section-space" id="tro-choi">
-      <div class="games-slogan" data-reveal>
-        <p class="games-slogan-quote">Trò chơi dân gian,<br><em>di sản văn hóa ngàn năm.</em></p>
-        <p class="games-slogan-caption">Tìm hiểu câu chuyện, cách chơi và ý nghĩa của trò chơi truyền thống Việt Nam qua tư liệu văn hóa chân thực.</p>
+      <!-- CAROUSEL INDICATOR DOTS -->
+      <div class="carousel-dots" id="carousel-dots" aria-hidden="true">
+        <span class="dot active" data-dot="0"></span>
+        <span class="dot" data-dot="1"></span>
+        <span class="dot" data-dot="2"></span>
+        <span class="dot" data-dot="3"></span>
+        <span class="dot" data-dot="4"></span>
+        <span class="dot" data-dot="5"></span>
       </div>
-      <div class="section-title" data-reveal>
-        <h2>Khám phá nét đẹp<br>văn hóa dân gian</h2>
-        <p>Từ nhịp sạp, đường còn đến những màn đọ sức và cú tung quay. Chọn một cuộc vui để tìm hiểu nguồn gốc và ý nghĩa ngày hội.</p>
-      </div>
-      <div class="game-grid" id="game-grid"></div>
-    </section>
 
-    <section class="festival-section section-space" id="ngay-hoi">
-      <div class="wrap">
-        <div class="section-title" data-reveal>
-          <h2>Cuộc vui có thật.<br>Những kết nối cũng vậy.</h2>
-          <p>Phía sau mỗi thao tác trong game là người chơi, dụng cụ và không gian văn hóa ngoài đời.</p>
+      <!-- 4. ACTION BUTTONS (CHƠI NGAY & KHÁM PHÁ VĂN HÓA) -->
+      <!-- NÚT CHƠI NGAY -->
+      <a href="nem-con/index.html" class="action-btn btn-play" id="btn-play-game" title="Bắt đầu trò chơi đã chọn">
+        <img src="assets/ui/btn_play_sac_viet.png" alt="CHƠI NGAY" class="layer-img btn-img" decoding="async">
+      </a>
+
+      <!-- NÚT KHÁM PHÁ VĂN HÓA -->
+      <a href="van-hoa.html" class="action-btn btn-culture" id="btn-kham-pha" title="Tìm hiểu nét đẹp văn hóa dân gian">
+        <img src="assets/ui/btn_culture_sac_viet.png" alt="KHÁM PHÁ VĂN HÓA" class="layer-img btn-img" decoding="async">
+      </a>
+
+    </div>
+  </div>
+
+  <!-- MODAL: KHÁM PHÁ VĂN HÓA (ĐẦY ĐỦ 6 TRÒ CHƠI DÂN GIAN) -->
+  <div class="modal-overlay" id="modal-culture" role="dialog" aria-modal="true" aria-labelledby="culture-modal-title">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h2 id="culture-modal-title">🌾 SẮC VIỆT — DI SẢN TRÒ CHƠI DÂN GIAN VIỆT NAM</h2>
+        <button type="button" class="modal-close-btn" aria-label="Đóng">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="culture-section">
+          <h3>1. Lễ hội Lồng Tồng (Xuống Đồng) Vùng Cao</h3>
+          <p>Lễ hội Lồng Tồng là ngày hội xuân thiêng liêng và tưng bừng bậc nhất của các đồng bào dân tộc Tày, Nùng, Thái, Mường tại vùng núi phía Bắc. Đây là dịp người dân tạ ơn trời đất, thần linh đã ban cho một năm mưa thuận gió hòa, cầu chúc mùa màng bội thu, bản làng ấm no hạnh phúc.</p>
         </div>
-        <div class="festival-grid" id="festival-grid"></div>
-        <div class="festival-note">
-          <h3>Mỗi nơi, một sắc thái.</h3>
-          <p>Luật chơi và cách thực hành có thể khác nhau giữa các cộng đồng. Sắc Việt giới thiệu những nét cơ bản, đồng thời dẫn nguồn để bạn tiếp tục tìm hiểu từng bối cảnh.</p>
-          <a class="text-link" href="tro-choi/?game=nem-con#nguon">Đọc thêm từ nguồn tư liệu ↗</a>
+
+        <div class="culture-section">
+          <h3>2. Ném Còn — Linh hồn hội xuân</h3>
+          <p>Giữa sân hội dựng cây nêu cao từ 15-20 mét bằng cây bương già. Trên đỉnh gắn chiếc vòng tròn bọc giấy đỏ và vàng (tượng trưng cho Mặt Trời và Mặt Trăng). Quả còn may bằng vải hoa rực rỡ, bên trong nhồi hạt thóc, hạt bông, tượng trưng cho sự sinh sôi nảy nở. Người ném còn trúng qua tâm vòng sẽ mang lại may mắn, phúc lộc cho cả bản làng.</p>
+        </div>
+
+        <div class="culture-section">
+          <h3>3. Đẩy Gậy — Ý chí và sức mạnh quật cường</h3>
+          <p>Môn thể thao cổ truyền thử thách bản lĩnh đàn ông vùng cao. Hai đấu thủ nắm chặt thân gậy tre bóng loáng, dồn toàn bộ sức mạnh vào đôi chân trụ vững vàng để đẩy đối phương ra khỏi vòng thi đấu. Trò chơi tôn vinh tinh thần thượng võ, sự dũng cảm và kiên cường vượt qua mọi gian khó.</p>
+        </div>
+
+        <div class="culture-section">
+          <h3>4. Nhảy Sạp — Giai điệu tre nứa kết nối tình thân</h3>
+          <p>Nhảy sạp là điệu múa sinh hoạt cộng đồng giàu sức sống. Tiếng gõ tre giòn giã "Cộc - Cộc - Cộc - Chách" hòa cùng tiếng khèn bè, tiếng chiêng rộn rã. Từng đôi chân thoăn thoắt nhịp nhàng vượt qua các luống tre khép mở không chỉ thể hiện tài hoa, sức trẻ mà còn là cầu nối giao duyên thắm thiết cho các chàng trai cô gái.</p>
+        </div>
+
+        <div class="culture-section">
+          <h3>5. Đi Cà Kheo — Nghệ thuật thăng bằng vùng sông suối</h3>
+          <p>Khởi nguồn từ phương thức di chuyển qua các triền suối đá và vùng nước ngập lũ, đi cà kheo dần trở thành trò chơi thi tài khéo léo bậc nhất trong các ngày hội. Đòi hỏi sự kết hợp nhịp nhàng giữa tay, chân và khả năng giữ trọng tâm trên những thân tre khẳng khiu.</p>
+        </div>
+
+        <div class="culture-section">
+          <h3>6. Bắn Nỏ — Tài nghệ thiện xạ bảo vệ bản làng</h3>
+          <p>Chiếc nỏ bằng gỗ nghiến và dây cung sợi gai là báu vật truyền đời của đồng bào miền núi. Bắn nỏ đòi hỏi sự điềm tĩnh, nhãn lực chuẩn xác và hơi thở đều đặn. Trong các hội xuân, bia bắn thường là các hình tượng chim thú hoặc tâm tròn tượng trưng cho sự đắc thắng.</p>
+        </div>
+
+        <div class="culture-section">
+          <h3>7. Ném Quay (Đánh Quay / Đánh Cù) — Niềm vui rộn ràng</h3>
+          <p>Con quay được đẽo gọt tỉ mỉ từ các loại gỗ cứng như gỗ dẻ, gỗ nghiến, gắn chiếc đinh sắt ở đáy. Người chơi dùng sợi dây gai bện chặt quấn quanh thân quay rồi vung mạnh để con quay xoay tít trên mặt đất. Tiếng rít xé gió của con quay rộn vang khắp triền đồi ngày hội.</p>
         </div>
       </div>
-    </section>
-
-    <section class="about-section wrap section-space" id="ve-du-an">
-      <div class="about-heading" data-reveal>
-        <h2>Từ tò mò,<br>đến một lần chạm.</h2>
+      <div class="modal-footer">
+        <button type="button" class="btn-modal-action btn-modal-close">ĐÃ HIỂU & QUAY LẠI</button>
       </div>
-      <div class="about-copy">
-        <p class="large-copy">Sắc Việt là một lời mời tìm hiểu văn hóa qua trò chơi.</p>
-        <p>Chúng mình bắt đầu bằng những thao tác dễ thử: tung một quả còn, bước theo nhịp sạp. Từ đó, mở ra câu chuyện về con người và những cuộc vui đã gắn bó với cộng đồng.</p>
-        <p>Bản số là một cách chuyển thể sáng tạo. Ảnh tư liệu, video và nguồn đọc giúp nối trải nghiệm trên màn hình với hoạt động ngoài đời.</p>
-        <div class="about-principles">
-          <p><strong>Xem được bối cảnh</strong>Ảnh và video luôn đi cùng chú thích, tác giả hoặc nguồn.</p>
-          <p><strong>Bắt đầu dễ dàng</strong>Khám phá từng trò chơi, có tư liệu minh họa phong phú.</p>
+    </div>
+  </div>
+
+  <!-- MODAL: CÀI ĐẶT & KỶ LỤC -->
+  <div class="modal-overlay" id="modal-settings" role="dialog" aria-modal="true" aria-labelledby="settings-title">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h2 id="settings-title">⚙️ TÙY CHỌN & THÀNH TÍCH</h2>
+        <button type="button" class="modal-close-btn" aria-label="Đóng">&times;</button>
+      </div>
+      <div class="modal-body">
+        <h3>Bản nhạc hội xuân Tây Bắc</h3>
+        <p>Bấm vào biểu tượng chiếc loa gỗ ở góc trên bên phải màn hình để bật/tắt giai điệu khèn năm cung rộn rã.</p>
+        
+        <h3>Thành tích kỷ lục hiện tại</h3>
+        <div class="score-board-grid">
+          <div class="score-card">
+            <span class="score-game-name">🧵 NÉM CÒN</span>
+            <span class="score-val" id="val-nemcon-hs">0</span>
+            <span class="score-unit">điểm</span>
+          </div>
+          <div class="score-card">
+            <span class="score-game-name">🎋 NHẢY SẠP</span>
+            <span class="score-val" id="val-nhaysap-hs">0</span>
+            <span class="score-unit">điểm</span>
+          </div>
+          <div class="score-card">
+            <span class="score-game-name">🪵 ĐẨY GẬY</span>
+            <span class="score-val" id="val-daygay-hs">0</span>
+            <span class="score-unit">trận thắng</span>
+          </div>
+          <div class="score-card">
+            <span class="score-game-name">🏹 BẮN NỎ</span>
+            <span class="score-val" id="val-banno-hs">0</span>
+            <span class="score-unit">điểm</span>
+          </div>
+        </div>
+
+        <div class="reset-data-wrap">
+          <button type="button" id="btn-reset-data" class="btn-modal-action btn-danger">
+            🗑️ XÓA DỮ LIỆU ĐIỂM KỶ LỤC
+          </button>
         </div>
       </div>
-    </section>
-
-    <section class="faq-section wrap section-space" id="hoi-dap">
-      <h2>Trước khi vào hội</h2>
-      <div class="faq-list">
-        <details>
-          <summary>Trang này có mục đích gì?</summary>
-          <p>Đây là chuyên trang tư liệu văn hóa của nhóm Sắc Việt, tập trung giới thiệu nguồn gốc, ý nghĩa, hình ảnh và video tư liệu ngoài đời của các trò chơi dân gian Việt Nam.</p>
-        </details>
-        <details>
-          <summary>Tôi muốn quay lại sảnh trò chơi thì làm thế nào?</summary>
-          <p>Bạn chỉ cần bấm vào biểu tượng logo “SẮC VIỆT” ở đầu trang để quay lại sảnh chơi game bất cứ lúc nào.</p>
-        </details>
-        <details>
-          <summary>Nội dung văn hóa được lấy từ đâu?</summary>
-          <p>Nội dung được biên soạn từ Wikipedia, báo chí và nguồn tư liệu du lịch. Mỗi trang chi tiết có danh sách nguồn, chú thích ảnh và liên kết video để bạn đối chiếu.</p>
-        </details>
+      <div class="modal-footer">
+        <button type="button" class="btn-modal-action btn-modal-close">HOÀN TẤT</button>
       </div>
-    </section>
+    </div>
+  </div>
 
-    <section class="closing-section wrap">
-      <h2>Chọn một trò.<br>Mở một cuộc vui.</h2>
-      <a class="button" href="#tro-choi">Khám phá văn hóa ↗</a>
-    </section>
-  </main>
+  <!-- TRANSITION OVERLAY KHI VÀO GAME -->
+  <div class="page-transition-overlay" id="page-transition-overlay">
+    <div class="transition-spinner">
+      <div class="spinner-ring"></div>
+      <span class="spinner-text" id="spinner-text">ĐANG VÀO HỘI XUÂN...</span>
+    </div>
+  </div>
 
-  <footer class="site-footer wrap">
-    <a class="brand brand-sac-viet" href="index.html" title="Sắc Việt — Về Trang chủ chơi game"><span>SẮC VIỆT</span></a>
-    <p>Khám phá văn hóa qua trò chơi.</p>
-    <a href="#main">Về đầu trang ↑</a>
-  </footer>
-
-  <script src="portal/content.js?v=clean-1"></script>
-  <script src="portal/home.js?v=clean-1"></script>
-  <script src="portal/vendor/gsap.min.js"></script>
-  <script src="portal/vendor/ScrollTrigger.min.js"></script>
-  <script src="portal/ui.js?v=clean-1"></script>
+  <script src="homepage.js?v=20261022_final"></script>
 </body>
 </html>

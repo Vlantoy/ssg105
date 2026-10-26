@@ -1,23 +1,24 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <base href="../">
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Lễ Hội Ném Còn - Trò Chơi Dân Gian Việt Nam</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css"><link rel="stylesheet" href="nem-con/simple.css?v=20261018-portal-4">
-<script src="shared/game-loader.js?v=1"></script></head>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="festival-theme.css">
+  <script>window.ASSET_PREFIX = "../";</script>
+</head>
 <body>
   <div id="game-container">
     <!-- Top HUD Bar -->
     <header id="hud-top">
-      <!-- 1. Left: Stylized Ném Còn Graphic Logo (Overhanging slightly into background) -->
+      <!-- 1. Left: Stylized Ném Còn Graphic Logo (Bấm vào logo để trở về Trang Chủ) -->
       <div class="hud-logo-wrap">
         <a href="../index.html" class="hud-logo-link" title="Trở về Trang Chủ - Ném Còn Dân Tộc" aria-label="Trở về Trang Chủ">
-          <img src="assets/items/logo_nem_con.png" alt="Ném Còn Dân Tộc" class="hud-game-logo" id="hud-game-logo">
+          <img src="../assets/items/logo_nem_con.png" alt="Ném Còn Dân Tộc" class="hud-game-logo" id="hud-game-logo">
         </a>
       </div>
 
@@ -64,6 +65,7 @@
 
       <!-- 3. Right: Minimalist Audio & Unified Menu -->
       <div class="hud-right-wrap">
+        <span id="difficulty-status">Vừa</span>
         <button id="btn-audio" class="btn-tool btn-audio-mini" title="Bật/Tắt âm thanh">
           <span class="icon" id="audio-icon">🔊</span>
         </button>
@@ -91,6 +93,10 @@
                 <span class="icon">🎯</span>
                 <span class="label">1 Người</span>
               </button>
+              <a class="menu-btn-item" href="../nhay-sap/index.html" aria-label="Mở game Nhảy Sạp">
+                <span class="icon">🎋</span>
+                <span class="label">Nhảy Sạp</span>
+              </a>
               <a class="menu-btn-item" href="../index.html" aria-label="Trở về Trang Chủ">
                 <span class="icon">🏠</span>
                 <span class="label">Trang Chủ</span>
@@ -105,6 +111,7 @@
               <button class="diff-pill active" data-diff="medium" id="diff-pill-medium">Vừa</button>
               <button class="diff-pill" data-diff="hard" id="diff-pill-hard">Khó</button>
             </div>
+            <p class="difficulty-summary" data-difficulty-summary aria-live="polite"></p>
 
             <div class="menu-hr"></div>
 
@@ -134,8 +141,6 @@
               <span class="icon">🛠️</span>
               <span class="label">Dev Test Chiêu</span>
             </button>
-
-            <a class="menu-opt-btn" href="nhay-sap/" style="display:flex; justify-content:center; margin-bottom:8px; text-decoration:none;">Chơi Nhảy Sạp →</a>
 
             <button class="menu-reset-btn" id="btn-reset">
               <span class="icon">🔄</span> Chơi Lại Lượt Này
@@ -196,7 +201,7 @@
         <span>Lượt ném: <strong id="throws-count">0</strong></span>
         <span>|</span>
         <span>Tỉ lệ trúng: <strong id="accuracy-val">0%</strong></span>
-        <button id="btn-reset" class="btn-small" title="Chơi lại từ đầu">↺ Chơi lại</button>
+        <button id="btn-reset-footer" class="btn-small" title="Chơi lại từ đầu">↺ Chơi lại</button>
       </div>
     </footer>
   </div>
@@ -239,8 +244,8 @@
     <div class="modal-box modal-culture-box">
       <div class="modal-header">
         <div class="modal-tabs">
-          <button id="tab-btn-culture" class="modal-tab active">🌾 Nét Đẹp Văn Hóa</button>
-          <button id="tab-btn-gameplay" class="modal-tab">🎯 Hướng Dẫn Chơi</button>
+          <button id="tab-btn-culture" class="modal-tab active">🌾 THÔNG TIN VĂN HÓA</button>
+          <button id="tab-btn-gameplay" class="modal-tab">🎯 HƯỚNG DẪN</button>
         </div>
         <button id="btn-close-modal" class="modal-close" title="Đóng">&times;</button>
       </div>
@@ -252,6 +257,7 @@
           <div class="culture-badge-row">
             <span class="culture-tag">🌾 DI SẢN VĂN HÓA PHI VẬT THỂ</span>
             <span class="culture-read-time">⏱️ 5 phút đọc</span>
+            <a href="../van-hoa.html" class="culture-tag" style="text-decoration:none; color:#edc35b; margin-left:auto;">🌾 Chuyên trang Sắc Việt ↗</a>
           </div>
           <h2 class="culture-main-title">NÉM CÒN — HỒN THƠ & SỨC SỐNG LỄ HỘI LỒNG TỒNG</h2>
           <p class="culture-subtitle">Huyền tích ngàn năm, cấu trúc vũ trụ luận, video phóng sự thực tế và nét duyên dáng của trò chơi dân gian Tày, Nùng, Thái, Mường</p>
@@ -589,7 +595,7 @@
         <div class="guide-item">
           <div class="guide-icon">🖱️</div>
           <div class="guide-desc">
-            <h4>1. Giữ chuột & Xoay vòng (Getting Over It)</h4>
+            <h4>1. Giữ và xoay để lấy đà</h4>
             <p>Nhấn giữ chuột trái (hoặc chạm kéo trên màn hình) và xoay chuột xung quanh nhân vật. Cánh tay nhân vật và dây còn sẽ cử động theo hướng chuột, tích lũy động năng và lực căng ly tâm.</p>
           </div>
         </div>
@@ -630,7 +636,7 @@
         <div class="guide-item">
           <div class="guide-icon">🧵</div>
           <div class="guide-desc">
-            <h4>6. Tùy Chọn Cầm Dây Còn (Nút [🧵 Cầm Dây] trên thanh công cụ)</h4>
+            <h4>6. Chọn cách cầm dây trong Menu</h4>
             <p><strong>Đuôi Dây (Sải Dài):</strong> Bán kính quay lớn, lực ly tâm cực đại, bay cao và xa nhất.<br>
             <strong>Giữa Dây (Sải Vừa):</strong> Cân bằng nhịp vung, ổn định và dễ điều khiển.<br>
             <strong>Gần Quả Còn (Sải Ngắn):</strong> Vung nhanh thoăn thoắt, quỹ đạo bay căng và trực diện.</p>
@@ -650,7 +656,7 @@
       </div>
 
       <div class="modal-footer">
-        <button id="btn-modal-ok" class="btn-primary">Đã Hiểu — Bắt Đầu Chơi!</button>
+        <button id="btn-modal-ok" class="btn-primary">ĐÓNG · TRỞ LẠI SÂN HỘI</button>
       </div>
     </div>
   </div>
@@ -662,7 +668,7 @@
         <div class="start-title-wrap">
           <span class="start-fest-badge">🎋 LỄ HỘI LỒNG TỒNG VÙNG CAO</span>
           <h2 class="start-main-title">NÉM CÒN DÂN TỘC</h2>
-          <p class="start-sub-desc">Chọn chế độ để bắt đầu trẩy hội</p>
+          <p class="start-sub-desc">Một vòng tre, một quả còn. Cùng nhau trẩy hội!</p>
         </div>
         <button id="btn-close-mode" class="modal-close" title="Đóng">&times;</button>
       </div>
@@ -671,29 +677,29 @@
         <div class="start-modes-grid">
           <!-- Card 1: Bot -->
           <div class="start-mode-card active" id="card-mode-bot" data-mode="bot">
-            <div class="start-card-badge start-badge-bot">🤖 Bot</div>
+            <div class="start-card-badge start-badge-bot">SO TÀI</div>
             <div class="start-card-icon start-icon-bot">🤖</div>
-            <h3>Bot</h3>
-            <p class="start-card-desc" id="bot-card-desc">Thi đấu 10 điểm với Bot.</p>
-            <button class="btn-start-choice btn-choice-bot">Bot</button>
+            <h3>Đấu với máy</h3>
+            <p class="start-card-desc" id="bot-card-desc">Đọc hướng gió, canh nhịp ném. Chạm 10 điểm để thắng.</p>
+            <button class="btn-start-choice btn-choice-bot">Chọn đấu máy</button>
           </div>
 
           <!-- Card 2: 2 Người -->
           <div class="start-mode-card" id="card-mode-versus" data-mode="versus">
-            <div class="start-card-badge start-badge-vs">👥 2 Người</div>
+            <div class="start-card-badge start-badge-vs">CÙNG BẠN</div>
             <div class="start-card-icon start-icon-vs">👥</div>
-            <h3>2 Người</h3>
-            <p class="start-card-desc">Thi đấu 2 người đối kháng.</p>
-            <button class="btn-start-choice btn-choice-vs">2 Người</button>
+            <h3>Đấu cùng bạn</h3>
+            <p class="start-card-desc">Chung một màn hình, thay phiên ném. Ai sẽ thắng hội?</p>
+            <button class="btn-start-choice btn-choice-vs">Chọn hai người</button>
           </div>
 
           <!-- Card 3: 1 Người -->
           <div class="start-mode-card" id="card-mode-single" data-mode="single">
-            <div class="start-card-badge">🎯 1 Người</div>
+            <div class="start-card-badge">LUYỆN TẬP</div>
             <div class="start-card-icon">🎯</div>
-            <h3>1 Người</h3>
-            <p class="start-card-desc">Chơi đơn tính điểm.</p>
-            <button class="btn-start-choice">1 Người</button>
+            <h3>Tự do luyện tập</h3>
+            <p class="start-card-desc">Tập nhịp vung còn, nối chuỗi trúng và phá kỷ lục.</p>
+            <button class="btn-start-choice">Chọn luyện tập</button>
           </div>
         </div>
 
@@ -704,6 +710,7 @@
             <button type="button" class="btn-diff active" data-diff="medium">Vừa</button>
             <button type="button" class="btn-diff" data-diff="hard">Khó</button>
           </div>
+          <p class="difficulty-summary" data-difficulty-summary aria-live="polite"></p>
         </div>
       </div>
 
@@ -714,7 +721,7 @@
         <button id="btn-start-skin" class="btn-tool btn-start-tool" title="Chọn nhân vật & trang phục hội">
           <span class="icon">👘</span> <span class="btn-text">Chọn Nhân Vật</span>
         </button>
-        <button id="btn-start-game" class="btn-primary" style="margin-left: auto;">VÀO CHƠI NGAY 🎯</button>
+        <button id="btn-start-game" class="btn-primary" style="margin-left: auto;">VÀO HỘI 🎯</button>
       </div>
     </div>
   </div>
@@ -832,7 +839,8 @@
   </div>
 
   <script src="character-config.js"></script>
+  <script src="difficulty.js"></script>
   <script src="game.js"></script>
-<script src="nem-con/simple.js?v=20261018-portal-4"></script>
+  <script src="festival-icons.js"></script>
 </body>
 </html>
