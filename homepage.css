@@ -200,7 +200,8 @@ html, body {
 }
 
 .ctrl-btn.btn-audio,
-.ctrl-btn.btn-settings {
+.ctrl-btn.btn-settings,
+.ctrl-btn.btn-facebook {
   width: clamp(38px, 3.8vw, 56px);
   height: clamp(38px, 3.8vw, 56px);
 }

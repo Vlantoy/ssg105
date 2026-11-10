@@ -352,6 +352,17 @@ export default function HomePage() {
 
         {/* TOP UTILITY CONTROLS */}
         <div className="top-controls">
+          <a
+            href="https://www.facebook.com/profile.php?id=61594770114607"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="ctrl-btn btn-facebook"
+            id="btn-facebook-link"
+            title="Fanpage Facebook Sắc Việt"
+            aria-label="Fanpage Facebook Sắc Việt"
+          >
+            <img src="/assets/ui/btn_facebook_pixel.png" alt="Facebook Fanpage" className="ctrl-icon-pixel" />
+          </a>
           <button
             type="button"
             className="ctrl-btn btn-audio"
@@ -563,6 +574,35 @@ export default function HomePage() {
                   <span className="score-val" id="val-banno-hs">{highScores.banno}</span>
                   <span className="score-unit">điểm</span>
                 </div>
+              </div>
+
+              <div className="community-wrap" style={{ marginTop: "16px", marginBottom: "8px", textAlign: "center" }}>
+                <a
+                  href="https://www.facebook.com/profile.php?id=61594770114607"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    display: "inline-flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    gap: "8px",
+                    width: "100%",
+                    boxSizing: "border-box",
+                    backgroundColor: "#1877f2",
+                    color: "#fff",
+                    padding: "11px 16px",
+                    borderRadius: "8px",
+                    textDecoration: "none",
+                    fontWeight: 700,
+                    fontSize: "13px",
+                    boxShadow: "0 4px 12px rgba(24,119,242,0.35)",
+                  }}
+                >
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                  </svg>
+                  KẾT NỐI FANPAGE FACEBOOK SẮC VIỆT ↗
+                </a>
               </div>
 
               <div className="reset-data-wrap">
