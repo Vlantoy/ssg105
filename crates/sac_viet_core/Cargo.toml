@@ -1,0 +1,18 @@
+[package]
+name = "sac_viet_core"
+version = "0.1.0"
+edition = "2021"
+authors = ["Sac Viet Cultural Gaming Team"]
+description = "High-performance core physics and rhythm algorithms for Sac Viet games (Nem Con & Nhay Sap)"
+license = "MIT"
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+# Optional WebAssembly bridge for browser interop
+wasm-bindgen = { version = "0.2", optional = true }
+
+[features]
+default = []
+wasm = ["wasm-bindgen"]

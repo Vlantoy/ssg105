@@ -1593,7 +1593,7 @@
 
       this.p1Score = 0;
       this.p2Score = 0;
-      this.matchTargetScore = 10; // Đua 10 điểm chiến thắng
+      this.matchTargetScore = 3; // Đua 3 điểm chiến thắng
       this.currentTurn = 1;       // 1 = Player 1 (Nam), 2 = Player 2 (Nữ / Bot)
       this.cameraX = 0;           // Current camera scroll offset (0 to 1060px)
       this.cameraTargetX = 0;     // Target camera scroll offset
@@ -5508,18 +5508,18 @@
       if (this.gameMode === 'bot') {
         if (winner === 1) {
           if (vTitle) vTitle.textContent = '👦 BẠN CHIẾN THẮNG!';
-          if (vSubtitle) vSubtitle.textContent = '10 điểm';
+          if (vSubtitle) vSubtitle.textContent = `${this.matchTargetScore} điểm`;
         } else {
           if (vTitle) vTitle.textContent = '🤖 BOT CHIẾN THẮNG!';
-          if (vSubtitle) vSubtitle.textContent = '10 điểm';
+          if (vSubtitle) vSubtitle.textContent = `${this.matchTargetScore} điểm`;
         }
       } else {
         if (winner === 1) {
           if (vTitle) vTitle.textContent = '👦 P1 CHIẾN THẮNG!';
-          if (vSubtitle) vSubtitle.textContent = '10 điểm';
+          if (vSubtitle) vSubtitle.textContent = `${this.matchTargetScore} điểm`;
         } else {
           if (vTitle) vTitle.textContent = '👧 P2 CHIẾN THẮNG!';
-          if (vSubtitle) vSubtitle.textContent = '10 điểm';
+          if (vSubtitle) vSubtitle.textContent = `${this.matchTargetScore} điểm`;
         }
       }
 
