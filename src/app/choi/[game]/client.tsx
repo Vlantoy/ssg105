@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState, useRef, useEffect } from "react";
-import Link from "next/link";
 import { notFound } from "next/navigation";
 import { GAMES_DATA } from "@/data/games";
 
@@ -38,109 +37,55 @@ export default function GamePlayClient({ gameKey }: { gameKey: string }) {
       style={{
         position: "fixed",
         inset: 0,
-        display: "flex",
-        flexDirection: "column",
-        backgroundColor: "#0d1117",
+        backgroundColor: "#000",
         overflow: "hidden",
         zIndex: 1000,
       }}
     >
-      {/* GAME RUNNER HEADER */}
-      <header
+      {/* FLOATING FULLSCREEN TOGGLE */}
+      <button
+        type="button"
+        onClick={toggleFullscreen}
+        title={isFullscreen ? "Thu nhỏ" : "Toàn màn hình"}
         style={{
-          height: "48px",
-          backgroundColor: "#161b22",
-          borderBottom: "1px solid rgba(237,195,91,0.25)",
+          position: "fixed",
+          bottom: "16px",
+          right: "16px",
+          zIndex: 9999,
+          background: "rgba(22, 27, 34, 0.8)",
+          color: "#edc35b",
+          border: "1px solid rgba(237, 195, 91, 0.35)",
+          backdropFilter: "blur(6px)",
+          borderRadius: "8px",
+          padding: "7px 12px",
+          fontSize: "12px",
+          fontWeight: 600,
+          cursor: "pointer",
           display: "flex",
           alignItems: "center",
-          justifyContent: "space-between",
-          padding: "0 16px",
-          color: "#f8f5ee",
+          gap: "6px",
+          boxShadow: "0 4px 12px rgba(0,0,0,0.5)",
           userSelect: "none",
-          zIndex: 10,
+          transition: "all 0.2s ease",
         }}
       >
-        <div style={{ display: "flex", alignItems: "center", gap: "14px" }}>
-          <Link
-            href="/"
-            style={{
-              color: "#edc35b",
-              textDecoration: "none",
-              fontSize: "14px",
-              fontWeight: 600,
-              display: "flex",
-              alignItems: "center",
-              gap: "4px",
-            }}
-          >
-            ← Sảnh trò chơi
-          </Link>
-        </div>
-
-        <div
-          style={{
-            position: "absolute",
-            left: "50%",
-            transform: "translateX(-50%)",
-            fontSize: "15px",
-            fontWeight: 700,
-            letterSpacing: "1.5px",
-            color: "#ffe5ac",
-            pointerEvents: "none",
-          }}
-        >
-          {game.title.toUpperCase()}
-        </div>
-
-        <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-          <Link
-            href={`/tro-choi/${gameKey}`}
-            style={{
-              color: "#edc35b",
-              textDecoration: "none",
-              fontSize: "13px",
-              fontWeight: 600,
-              padding: "4px 10px",
-              border: "1px solid rgba(237,195,91,0.4)",
-              borderRadius: "4px",
-              backgroundColor: "rgba(237,195,91,0.08)",
-            }}
-          >
-            Nét đẹp văn hóa ↗
-          </Link>
-          <button
-            type="button"
-            onClick={toggleFullscreen}
-            style={{
-              color: "#d9d2c5",
-              background: "transparent",
-              border: "1px solid rgba(255,255,255,0.2)",
-              borderRadius: "4px",
-              padding: "4px 10px",
-              fontSize: "13px",
-              cursor: "pointer",
-            }}
-          >
-            {isFullscreen ? "Thu nhỏ" : "Toàn màn hình ⛶"}
-          </button>
-        </div>
-      </header>
+        <span>{isFullscreen ? "✕" : "⛶"}</span>
+        <span>{isFullscreen ? "Thu nhỏ" : "Toàn màn hình"}</span>
+      </button>
 
       {/* GAME RUNNER FRAME */}
-      <div style={{ flex: 1, position: "relative", width: "100%", height: "calc(100% - 48px)", backgroundColor: "#000" }}>
-        <iframe
-          ref={iframeRef}
-          src={`/${gameKey}/index.html`}
-          title={`Trò chơi ${game.title}`}
-          style={{
-            width: "100%",
-            height: "100%",
-            border: "none",
-            display: "block",
-          }}
-          allow="autoplay; fullscreen; accelerometer; gyroscope"
-        />
-      </div>
+      <iframe
+        ref={iframeRef}
+        src={`/${gameKey}/index.html`}
+        title={`Trò chơi ${game.title}`}
+        style={{
+          width: "100%",
+          height: "100%",
+          border: "none",
+          display: "block",
+        }}
+        allow="autoplay; fullscreen; accelerometer; gyroscope"
+      />
     </div>
   );
 }

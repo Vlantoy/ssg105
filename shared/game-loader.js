@@ -3,22 +3,36 @@
   const pending = [], seen = new WeakSet();
   let done = 0, failed = false, finished = false;
 
-  // Iframe link breakout & embedded runner adjustments
-  if (typeof window !== 'undefined' && window.top !== window.self) {
-    document.documentElement.classList.add('embedded-runner');
+  // Iframe link breakout & URL normalizer
+  if (typeof window !== 'undefined') {
     document.addEventListener('click', (e) => {
       const a = e.target && e.target.closest ? e.target.closest('a') : null;
-      if (a && a.href && (!a.target || a.target === '_self')) {
-        const href = a.getAttribute('href') || '';
-        if (href.startsWith('../') || href.startsWith('/') || href.startsWith('./index') || href.includes('chamsacviet.online')) {
-          a.target = '_top';
+      if (!a) return;
+      const href = a.getAttribute('href') || '';
+
+      // Transform legacy /tro-choi/?game=slug to /tro-choi/slug/
+      const match = href.match(/tro-choi\/\?game=([a-z-]+)/);
+      if (match) {
+        e.preventDefault();
+        const targetUrl = `/tro-choi/${match[1]}/`;
+        if (window.top) window.top.location.href = targetUrl;
+        else window.location.href = targetUrl;
+        return;
+      }
+
+      // If running inside iframe, make any local navigation break out to top window
+      if (window.top !== window.self) {
+        if (!a.target || a.target === '_self') {
+          if (href.startsWith('../') || href.startsWith('/') || href.startsWith('./index') || href.includes('chamsacviet.online')) {
+            a.target = '_top';
+          }
         }
       }
     }, true);
   }
 
   const style = document.createElement('style');
-  style.textContent = '#asset-loader{position:fixed;inset:0;z-index:2147483647;display:grid;place-items:center;background:#12382f;color:#f6edce;font-family:system-ui,-apple-system,sans-serif;padding:24px}#asset-loader section{width:min(360px,100%);text-align:center}#asset-loader h2{font-size:26px;margin:0 0 18px}#asset-loader p{font-size:16px;line-height:1.6;color:#cfdbc9}#asset-loader progress{width:100%;height:8px;accent-color:#ecc479}#asset-loader button{border:0;border-radius:10px;padding:14px 28px;background:#ecc479;color:#12382f;font:700 16px system-ui,-apple-system,sans-serif;cursor:pointer}.embedded-runner header > a:first-child,.embedded-runner header .brand a,.embedded-runner header .tools .tool-link,.embedded-runner header nav a[href*="tro-choi"]{display:none !important;}';
+  style.textContent = '#asset-loader{position:fixed;inset:0;z-index:2147483647;display:grid;place-items:center;background:#12382f;color:#f6edce;font-family:system-ui,-apple-system,sans-serif;padding:24px}#asset-loader section{width:min(360px,100%);text-align:center}#asset-loader h2{font-size:26px;margin:0 0 18px}#asset-loader p{font-size:16px;line-height:1.6;color:#cfdbc9}#asset-loader progress{width:100%;height:8px;accent-color:#ecc479}#asset-loader button{border:0;border-radius:10px;padding:14px 28px;background:#ecc479;color:#12382f;font:700 16px system-ui,-apple-system,sans-serif;cursor:pointer}';
   document.head.append(style);
 
   const layer = document.createElement('div');
