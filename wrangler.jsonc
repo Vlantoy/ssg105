@@ -1,0 +1,21 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "sac-viet",
+  "account_id": "dd42c1af97502ca4b7e96d2e37e7db96",
+  "compatibility_date": "2026-03-01",
+  "workers_dev": true,
+  "assets": {
+    "directory": "./out",
+    "not_found_handling": "single-page-application"
+  },
+  "routes": [
+    {
+      "pattern": "chamsacviet.online",
+      "custom_domain": true
+    },
+    {
+      "pattern": "www.chamsacviet.online",
+      "custom_domain": true
+    }
+  ]
+}

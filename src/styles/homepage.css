@@ -797,3 +797,125 @@ body.is-lobby {
   letter-spacing: 1px;
   text-shadow: 0 0 10px var(--gold);
 }
+
+/* ==========================================================================
+   INITIAL PRELOADER SCREEN (CHO HỘI XUÂN SẮC VIỆT)
+   ========================================================================== */
+.initial-preloader {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  background: radial-gradient(circle at center, #24140a 0%, #110804 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.5s;
+  user-select: none;
+}
+
+.initial-preloader.fade-out {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.preloader-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 90%;
+  max-width: 380px;
+  padding: 30px 24px;
+  background: rgba(18, 10, 5, 0.85);
+  border: 1px solid rgba(237, 195, 91, 0.35);
+  border-radius: 16px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.7), inset 0 0 20px rgba(237, 195, 91, 0.08);
+  backdrop-filter: blur(8px);
+}
+
+.preloader-drum-spinner {
+  position: relative;
+  width: 84px;
+  height: 84px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.preloader-drum-svg {
+  width: 100%;
+  height: 100%;
+  animation: spinRing 4s linear infinite;
+  filter: drop-shadow(0 0 8px rgba(237, 195, 91, 0.6));
+}
+
+.preloader-glow-ring {
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  border: 2px dashed rgba(237, 195, 91, 0.4);
+  animation: spinRingReverse 6s linear infinite;
+}
+
+@keyframes spinRingReverse {
+  from { transform: rotate(360deg); }
+  to { transform: rotate(0deg); }
+}
+
+.preloader-heading {
+  font-size: 24px;
+  font-weight: 900;
+  color: #edc35b;
+  letter-spacing: 2px;
+  margin: 0 0 6px 0;
+  text-shadow: 0 0 12px rgba(237, 195, 91, 0.5);
+}
+
+.preloader-subtext {
+  font-size: 13px;
+  color: #d1b896;
+  margin: 0 0 22px 0;
+  letter-spacing: 0.5px;
+}
+
+.preloader-bar-wrap {
+  width: 100%;
+  height: 8px;
+  background: rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(237, 195, 91, 0.3);
+  border-radius: 999px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.8);
+}
+
+.preloader-bar-inner {
+  height: 100%;
+  background: linear-gradient(90deg, #b45309, #d97706, #edc35b, #fef08a);
+  border-radius: 999px;
+  transition: width 0.2s ease-out;
+  box-shadow: 0 0 10px rgba(237, 195, 91, 0.8);
+}
+
+.preloader-meta {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 12px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.preloader-label {
+  color: #a89a85;
+}
+
+.preloader-percent {
+  color: #edc35b;
+  font-weight: 800;
+  font-size: 13px;
+}

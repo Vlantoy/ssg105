@@ -203,8 +203,66 @@ export default function HomePage() {
   const [spinnerText, setSpinnerText] = useState("ĐANG VÀO HỘI XUÂN...");
   const [highScores, setHighScores] = useState({ nemcon: 0, nhaysap: 0, daygay: 0, banno: 0 });
 
+  // Trạng thái tiền tải (preloader) toàn bộ tài nguyên
+  const [isLoading, setIsLoading] = useState(true);
+  const [loadProgress, setLoadProgress] = useState(0);
+  const [isPreloaderRemoved, setIsPreloaderRemoved] = useState(false);
+
   const audioSysRef = useRef<FestivalAudioSystem | null>(null);
   const isSlidingRef = useRef(false);
+
+  // Preload toàn bộ ảnh lớn trước khi hiển thị giao diện
+  useEffect(() => {
+    const imagesToPreload = [
+      "/assets/ui/seamless_panorama.png",
+      "/assets/ui/layer_logo_sac_viet.png",
+      "/assets/ui/btn_play_sac_viet.png",
+      "/assets/ui/btn_culture_sac_viet.png",
+      "/assets/ui/btn_arrow_left.png",
+      "/assets/ui/btn_arrow_right.png",
+      "/assets/ui/btn_facebook_pixel.png",
+      "/assets/ui/btn_audio_pixel.png",
+      "/assets/ui/btn_settings_pixel.png",
+      "/assets/motifs/drum-inspired.svg",
+      ...GAMES_LIST.map((g) => g.cardImg),
+    ];
+
+    let loadedCount = 0;
+    const totalCount = imagesToPreload.length;
+
+    const onAssetLoaded = () => {
+      loadedCount++;
+      const pct = Math.min(100, Math.round((loadedCount / totalCount) * 100));
+      setLoadProgress(pct);
+
+      if (loadedCount >= totalCount) {
+        setTimeout(() => {
+          setIsLoading(false);
+          setTimeout(() => setIsPreloaderRemoved(true), 600);
+        }, 300);
+      }
+    };
+
+    // Giới hạn an toàn tối đa 8 giây phòng khi mạng bị nghẽn 1 file
+    const fallbackTimer = setTimeout(() => {
+      setLoadProgress(100);
+      setIsLoading(false);
+      setTimeout(() => setIsPreloaderRemoved(true), 600);
+    }, 8000);
+
+    imagesToPreload.forEach((src) => {
+      const img = new Image();
+      img.src = src;
+      if (img.complete) {
+        onAssetLoaded();
+      } else {
+        img.onload = onAssetLoaded;
+        img.onerror = onAssetLoaded;
+      }
+    });
+
+    return () => clearTimeout(fallbackTimer);
+  }, []);
 
   useEffect(() => {
     audioSysRef.current = new FestivalAudioSystem();
@@ -342,8 +400,47 @@ export default function HomePage() {
   const currentGame = GAMES_LIST[currentIndex];
 
   return (
-    <div className="homepage-container">
-      <div className="homepage-stage" id="homepage-stage">
+    <>
+      {/* 0. INITIAL ASSET PRELOADER SCREEN */}
+      {!isPreloaderRemoved && (
+        <div
+          className={`initial-preloader ${isLoading ? "" : "fade-out"}`}
+          role="progressbar"
+          aria-valuenow={loadProgress}
+          aria-valuemin={0}
+          aria-valuemax={100}
+        >
+          <div className="preloader-box">
+            <div className="preloader-drum-spinner">
+              <div className="preloader-glow-ring" />
+              <img
+                src="/assets/motifs/drum-inspired.svg"
+                alt=""
+                className="preloader-drum-svg"
+                aria-hidden="true"
+              />
+            </div>
+            <h2 className="preloader-heading">SẮC VIỆT</h2>
+            <p className="preloader-subtext">Đang tải không gian trò chơi dân gian...</p>
+            <div className="preloader-bar-wrap">
+              <div className="preloader-bar-inner" style={{ width: `${loadProgress}%` }} />
+            </div>
+            <div className="preloader-meta">
+              <span className="preloader-label">Chuẩn bị lễ hội</span>
+              <span className="preloader-percent">{loadProgress}%</span>
+            </div>
+          </div>
+        </div>
+      )}
+
+      <div
+        className="homepage-container"
+        style={{
+          opacity: isLoading ? 0 : 1,
+          transition: "opacity 0.45s ease-out",
+        }}
+      >
+        <div className="homepage-stage" id="homepage-stage">
         {/* ENDLESS SEAMLESS SCROLLING BACKGROUND */}
         <div className="endless-bg-track" id="endless-bg-track" aria-hidden="true">
           <img src="/assets/ui/seamless_panorama.png" className="endless-bg-img" alt="" />
@@ -632,5 +729,6 @@ export default function HomePage() {
         </div>
       </div>
     </div>
-  );
+  </>
+);
 }
