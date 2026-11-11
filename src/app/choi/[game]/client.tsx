@@ -75,10 +75,21 @@ export default function GamePlayClient({ gameKey }: { gameKey: string }) {
           >
             ← Sảnh trò chơi
           </Link>
-          <span style={{ color: "rgba(255,255,255,0.2)" }}>|</span>
-          <span style={{ fontSize: "15px", fontWeight: 700, letterSpacing: "0.5px", color: "#fff" }}>
-            {game.title.toUpperCase()}
-          </span>
+        </div>
+
+        <div
+          style={{
+            position: "absolute",
+            left: "50%",
+            transform: "translateX(-50%)",
+            fontSize: "15px",
+            fontWeight: 700,
+            letterSpacing: "1.5px",
+            color: "#ffe5ac",
+            pointerEvents: "none",
+          }}
+        >
+          {game.title.toUpperCase()}
         </div>
 
         <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
