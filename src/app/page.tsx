@@ -220,7 +220,7 @@ export default function HomePage() {
       "/assets/ui/btn_culture_sac_viet.png",
       "/assets/ui/btn_arrow_left.png",
       "/assets/ui/btn_arrow_right.png",
-      "/assets/ui/btn_facebook_pixel.png",
+      "/assets/ui/btn_facebook_pixel.png?v=3",
       "/assets/ui/btn_audio_pixel.png",
       "/assets/ui/btn_settings_pixel.png",
       "/assets/motifs/drum-inspired.svg",
@@ -458,7 +458,7 @@ export default function HomePage() {
             title="Fanpage Facebook Sắc Việt"
             aria-label="Fanpage Facebook Sắc Việt"
           >
-            <img src="/assets/ui/btn_facebook_pixel.png" alt="Facebook Fanpage" className="ctrl-icon-pixel" />
+            <img src="/assets/ui/btn_facebook_pixel.png?v=3" alt="Facebook Fanpage" className="ctrl-icon-pixel" />
           </a>
         </div>
 
