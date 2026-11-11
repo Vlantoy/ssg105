@@ -8,6 +8,9 @@ public/build/
 *.tsbuildinfo
 next-env.d.ts
 
+# Cloudflare
+.wrangler/
+
 # Environment files
 .env
 .env*.local
