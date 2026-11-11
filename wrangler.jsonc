@@ -7,15 +7,5 @@
   "assets": {
     "directory": "./out",
     "not_found_handling": "single-page-application"
-  },
-  "routes": [
-    {
-      "pattern": "chamsacviet.online",
-      "custom_domain": true
-    },
-    {
-      "pattern": "www.chamsacviet.online",
-      "custom_domain": true
-    }
-  ]
+  }
 }
