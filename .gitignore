@@ -1,54 +1,35 @@
-# Node modules
+# Development & analysis scripts
+*.py
+__pycache__/
+tools/
+
+# Node
 node_modules/
 
-# Build directories
-dist/
-build/
-public/build/
+# Temporary analysis & debug images
+aligned_shot.png
+aligned_spin_preview.gif
+aligned_throw_preview.gif
+compare_hand_to_flying.png
+compare_t10_vs_quacon_scales.png
+crop_t10_con.png
+debug_t3_con.png
+frame_alignment_contact_sheet.png
+frame_anchors.json
+hand_coords.json
+hand_coords_refined.json
+hand_positions_sheet.png
+inspect_hands_grid.png
+just_sphere_t3.png
+quacon_rot_test.png
+quacon_sphere.png
+scale_comparison.png
+scene_scale_*.png
+scene_with_t10_con.png
+simulated_flight_arc.png
+test_candidates*.png
+verify_*.png
+zoom_*.png
+scratch_*
+scratch/
 
-# Log files
-*.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-
-# OS files
-.DS_Store
-Thumbs.db
-
-# Next.js build output
-.next/
-next-env.d.ts
-
-# Public assets (if not versioned)
-public/
-
-# Environment files
-.env
-.env.local
-.env.development
-.env.production
-
-# IDE / editor folders/files
-.idea/
-.vscode/
-*.sublime-workspace
-*.sublime-project
-
-# Temporary files
-tmp/
-temp/
-*.tmp
-
-# Coverage reports
-coverage/
-
-# TypeScript cache
-*.tsbuildinfo
-
-# Release bundles
-*.tgz
-
-# Others
-*.lock
-.DS_Store
