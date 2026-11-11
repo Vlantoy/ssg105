@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { GAMES_DATA } from "@/data/games";
@@ -9,6 +9,15 @@ export default function GamePlayClient({ gameKey }: { gameKey: string }) {
   const game = GAMES_DATA[gameKey];
   const iframeRef = useRef<HTMLIFrameElement>(null);
   const [isFullscreen, setIsFullscreen] = useState(false);
+
+  // Prevent iframe inception: If this page is rendered inside an iframe, break out immediately
+  useEffect(() => {
+    if (typeof window !== "undefined" && window.top && window.top !== window.self) {
+      try {
+        window.top.location.href = window.location.href;
+      } catch (_) {}
+    }
+  }, []);
 
   if (!game) {
     notFound();

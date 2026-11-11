@@ -9,7 +9,21 @@
   <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="festival-theme.css">
-  <script>window.ASSET_PREFIX = "../";</script>
+  <script>
+    window.ASSET_PREFIX = "../";
+    if (window.top !== window.self) {
+      document.documentElement.classList.add('embedded-runner');
+      document.addEventListener('click', function(e) {
+        var a = e.target && e.target.closest ? e.target.closest('a') : null;
+        if (a && a.href && (!a.target || a.target === '_self')) {
+          var href = a.getAttribute('href') || '';
+          if (href.startsWith('../') || href.startsWith('/') || href.includes('chamsacviet.online')) {
+            a.target = '_top';
+          }
+        }
+      }, true);
+    }
+  </script>
 </head>
 <body>
   <div id="game-container">
