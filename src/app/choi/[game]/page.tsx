@@ -124,7 +124,7 @@ export default function GamePlayPage({
             border: "none",
             display: "block",
           }}
-          allow="autoplay; fullscreen"
+          allow="autoplay; fullscreen; accelerometer; gyroscope"
         />
       </div>
     </div>

@@ -350,8 +350,8 @@ export default function HomePage() {
           <img src="/assets/ui/seamless_panorama.png" className="endless-bg-img" alt="" />
         </div>
 
-        {/* TOP UTILITY CONTROLS */}
-        <div className="top-controls">
+        {/* TOP-LEFT: FANPAGE FACEBOOK Ở Ô RIÊNG BIỆT */}
+        <div className="top-left-controls">
           <a
             href="https://www.facebook.com/profile.php?id=61594770114607"
             target="_blank"
@@ -363,6 +363,10 @@ export default function HomePage() {
           >
             <img src="/assets/ui/btn_facebook_pixel.png" alt="Facebook Fanpage" className="ctrl-icon-pixel" />
           </a>
+        </div>
+
+        {/* TOP-RIGHT: ÂM THANH & CÀI ĐẶT */}
+        <div className="top-controls">
           <button
             type="button"
             className="ctrl-btn btn-audio"

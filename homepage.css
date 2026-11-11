@@ -174,8 +174,17 @@ html, body {
 }
 
 /* ==========================================================================
-   TOP UTILITY CONTROLS (ÂM THANH, CÀI ĐẶT & CHUYỂN SANG SSG105)
+   TOP UTILITY CONTROLS (ÂM THANH, CÀI ĐẶT & FANPAGE FACEBOOK Ở Ô RIÊNG)
    ========================================================================== */
+.top-left-controls {
+  position: absolute;
+  top: 2.45%;
+  left: 2.45%;
+  display: flex;
+  align-items: center;
+  z-index: 40;
+}
+
 .top-controls {
   position: absolute;
   top: 2.45%;
