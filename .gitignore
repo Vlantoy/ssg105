@@ -1,35 +1,75 @@
+# Next.js & Node
+node_modules/
+.next/
+out/
+build/
+dist/
+public/build/
+*.tsbuildinfo
+next-env.d.ts
+
+# Environment files
+.env
+.env*.local
+.env.local
+.env.development
+.env.production
+.vercel/
+
+# IDE & Editor caches
+.idea/
+.vscode/
+*.sublime-workspace
+*.sublime-project
+.agents/
+.omo/
+.codegraph/
+
+# OS files & logs
+.DS_Store
+Thumbs.db
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+tmp/
+temp/
+*.tmp
+coverage/
+*.tgz
+
 # Development & analysis scripts
 *.py
 __pycache__/
 tools/
-
-# Node
-node_modules/
+scratch/
+scratch_*
+unity/
 
 # Temporary analysis & debug images
-aligned_shot.png
-aligned_spin_preview.gif
-aligned_throw_preview.gif
-compare_hand_to_flying.png
-compare_t10_vs_quacon_scales.png
-crop_t10_con.png
-debug_t3_con.png
-frame_alignment_contact_sheet.png
-frame_anchors.json
-hand_coords.json
-hand_coords_refined.json
+aligned_*.png
+aligned_*.gif
+compare_*.png
+crop_*.png
+debug_*.png
+frame_*.png
+hand_*.png
 hand_positions_sheet.png
-inspect_hands_grid.png
+test_*.png
+test_*.gif
+preview_*.png
+preview_*.gif
+verify_*.png
+zoom_*.png
+scene_*.png
+scale_comparison.png
 just_sphere_t3.png
 quacon_rot_test.png
 quacon_sphere.png
-scale_comparison.png
-scene_scale_*.png
-scene_with_t10_con.png
 simulated_flight_arc.png
-test_candidates*.png
-verify_*.png
-zoom_*.png
-scratch_*
-scratch/
+inspect_hands_grid.png
+
+# Keep game assets
+!assets/**
+!public/assets/**
 
